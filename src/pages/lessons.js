@@ -13,7 +13,7 @@ class LessonsPage extends React.Component {
 		return (
 			<div>
 			  <h1>Lessons</h1>
-			  <p>Here you can view { totalCount } lessons.</p>
+			  <p>Here you can view { totalCount } lessons:</p>
 			  <ul>
 			  	{lessons.map(({ node }, i) => (
 	          <li key={ node.id }>{ node.title }</li>

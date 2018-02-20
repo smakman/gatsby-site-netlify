@@ -18,7 +18,7 @@ class LessonsPage extends React.Component {
 			  <ul>
 			  	{lessons.map(({ node }, i) => (
 	          <li key={ node.id }>
-	          	{node.image &&
+	          	{node.image && 
 	          		<Img resolutions={node.image.resolutions} />
 	          	}
 	          	{ node.title }
@@ -44,11 +44,8 @@ export const pageQuery = graphql`
 	        title
 	        slug
 	        image {
-	          resolutions(width: 250) {
-	            src
-	            srcSet
-	            width
-	            height            
+	          resolutions(width: 500) {
+	            ...GatsbyContentfulResolutions            
 	          }
 	        }
 	      }

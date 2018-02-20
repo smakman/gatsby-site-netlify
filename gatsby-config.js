@@ -10,6 +10,8 @@ module.exports = {
         accessToken: `7ca611e671588bfbd763d03d55e8701529e7271ab4da3ae5accf75556aecf37b`,
       },
     },
-  	'gatsby-plugin-react-helmet'
+  	'gatsby-plugin-react-helmet',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
   ],
 };

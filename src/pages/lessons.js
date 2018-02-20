@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Img from "gatsby-image"
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -16,7 +17,12 @@ class LessonsPage extends React.Component {
 			  <p>Here you can view { totalCount } lessons:</p>
 			  <ul>
 			  	{lessons.map(({ node }, i) => (
-	          <li key={ node.id }>{ node.title }</li>
+	          <li key={ node.id }>
+	          	{node.image &&
+	          		<Img resolutions={node.image.resolutions} />
+	          	}
+	          	{ node.title }
+	          </li>
 	        ))}
 			  </ul>
 			</div>
@@ -34,9 +40,17 @@ export const pageQuery = graphql`
 	    totalCount
 	    edges {
 	      node {
-	      	id,
-	        title,
+	      	id
+	        title
 	        slug
+	        image {
+	          resolutions(width: 250) {
+	            src
+	            srcSet
+	            width
+	            height            
+	          }
+	        }
 	      }
 	    }
 	  }
